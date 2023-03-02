@@ -3,7 +3,9 @@ use std::thread;
 fn main() {
     let t1 = thread::spawn(f);
 
-    let numbers = vec![1, 3, 5, 7, 9];
+    // let numbers = vec![1, 3, 5, 7, 9];
+    let numbers = vec![];
+
     let t2 = thread::spawn(move || {
         let len = numbers.len();
         let sum = numbers.iter().sum::<usize>();
