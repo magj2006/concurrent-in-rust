@@ -3,6 +3,7 @@ use std::thread;
 fn main() {
     let t1 = thread::spawn(f);
     let t2 = thread::spawn(f);
+
     println!("Hello from the main thread!");
 
     t1.join().unwrap();
