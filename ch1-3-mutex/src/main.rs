@@ -1,4 +1,4 @@
-use std::{sync::Mutex, thread};
+use std::{sync::Mutex, thread, time::Duration};
 
 fn main() {
     let n = Mutex::new(0);
@@ -10,6 +10,8 @@ fn main() {
                 for _ in 0..100 {
                     *guard += 1;
                 }
+                drop(guard);
+                thread::sleep(Duration::from_secs(10));
             });
         }
     });
