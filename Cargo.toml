@@ -1,5 +1,6 @@
 [workspace]
 members = [
     "ch1-1-hello",
-    "ch1-2-scope"
+    "ch1-2-scope",
+    "ch1-3-mutex"
 ]
