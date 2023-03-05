@@ -14,8 +14,10 @@ fn main() {
         });
 
         for i in 0.. {
-            queue.lock().unwrap().push_back(i);
+            queue.lock().unwrap().push_back(i); // unlock after this line
+
             t.thread().unpark();
+
             thread::sleep(Duration::from_secs(2));
         }
     })
