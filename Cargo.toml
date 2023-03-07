@@ -7,5 +7,6 @@ members = [
     "ch1-5-condvar",
     "ch2-1-atomicbool",
     "ch2-2-atomicusize",
-    "ch2-3-fetchadd"
+    "ch2-3-fetchadd",
+    "ch2-4-statistics"
 ]

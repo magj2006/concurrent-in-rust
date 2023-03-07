@@ -5,12 +5,15 @@ use std::{sync::atomic::AtomicUsize, thread};
 fn main() {
     let num_done = &AtomicUsize::new(0);
 
+    let tid = &thread::current();
+
     thread::scope(|s| {
         for t in 0..4 {
             s.spawn(move || {
                 for i in 0..25 {
                     process_item(t * 25 + i);
                     num_done.fetch_add(1, Relaxed);
+                    tid.unpark();
                 }
             });
         }
@@ -22,7 +25,8 @@ fn main() {
             }
             println!("Working.. {n}/100");
 
-            thread::sleep(Duration::from_secs(1));
+            // thread::sleep(Duration::from_secs(1));
+            thread::park_timeout(Duration::from_secs(1));
         }
     });
 

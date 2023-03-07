@@ -33,3 +33,7 @@ version = "0.1.0"
 [[package]]
 name = "ch2-3-fetchadd"
 version = "0.1.0"
+
+[[package]]
+name = "ch2-4-statistics"
+version = "0.1.0"
