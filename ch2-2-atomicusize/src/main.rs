@@ -6,12 +6,15 @@ use std::{sync::atomic::AtomicUsize, thread};
 fn main() {
     let num_done = AtomicUsize::new(0);
 
+    let main_thread = thread::current();
+
     thread::scope(|s| {
         // A background thread to process all 100 items.
         s.spawn(|| {
             for i in 0..100 {
                 process_item(i);
                 num_done.store(i + 1, Relaxed);
+                main_thread.unpark();
             }
         });
 
@@ -22,7 +25,8 @@ fn main() {
                 break;
             }
             println!("Working.. {n}/100 done");
-            thread::sleep(Duration::from_secs(1));
+            // thread::sleep(Duration::from_secs(4));
+            thread::park_timeout(Duration::from_secs(4));
         }
     });
 
@@ -31,5 +35,5 @@ fn main() {
 
 fn process_item(i: usize) {
     println!("Working.. {i}");
-    thread::sleep(Duration::from_secs(3));
+    thread::sleep(Duration::from_secs(1));
 }
