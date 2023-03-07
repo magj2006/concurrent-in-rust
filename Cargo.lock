@@ -21,3 +21,11 @@ version = "0.1.0"
 [[package]]
 name = "ch1-5-condvar"
 version = "0.1.0"
+
+[[package]]
+name = "ch2-1-atomicbool"
+version = "0.1.0"
+
+[[package]]
+name = "ch2-2-atomicusize"
+version = "0.1.0"

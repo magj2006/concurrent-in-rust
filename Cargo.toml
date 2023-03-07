@@ -4,5 +4,7 @@ members = [
     "ch1-2-scope",
     "ch1-3-mutex",
     "ch1-4-parking",
-    "ch1-5-condvar"
+    "ch1-5-condvar",
+    "ch2-1-atomicbool",
+    "ch2-2-atomicusize"
 ]
