@@ -29,3 +29,7 @@ version = "0.1.0"
 [[package]]
 name = "ch2-2-atomicusize"
 version = "0.1.0"
+
+[[package]]
+name = "ch2-3-fetchadd"
+version = "0.1.0"
